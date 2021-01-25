@@ -47,7 +47,7 @@ public class InfoForMe {
                 System.out.println("}");
                 break;
             default:
-                System.out.println("nonono");
+                System.out.println("tututu");
 
         }
     }
