@@ -6,6 +6,9 @@
 
 package blinov.chapter2;
 
+import temp.Car;
+import temp.Lada;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -21,9 +24,19 @@ public class VariantA {
 
     public static void main(String[] args) throws IOException {
         VariantA varA = new VariantA();
-//        varA.doTask1();
+        varA.doTask1();
 //        varA.doTask2();
-        varA.doTask3();
+//        varA.doTask3();
+
+        Car car1 = new Car();
+        car1.setColor("red");
+        System.out.println(car1.getColor());
+
+
+        Lada car2 = new Lada();
+        car2.setColor("white");
+        car2.setExistKey17(true);
+        car2.drive();
 
     }
 
@@ -80,10 +93,14 @@ public class VariantA {
         }
 
         minOfLght = (int)(Math.log10(minOfField) +1);                              // длина минимального числа
+        int minOfLengthMod = Math.abs(minOfField);
+        minOfLengthMod = (int)(Math.log10(minOfLengthMod) +1);
+
 
         System.out.println();
         System.out.println("Минимальное число: " + minOfField);
         System.out.println("Его длина: " + minOfLght);
+        System.out.println("Его длина по модулю: " + minOfLengthMod);
 
     }
 
@@ -97,18 +114,37 @@ public class VariantA {
 
         System.out.println("Какое количество чисел вы хотите ввести?");
 
-        n = scan.nextInt();                                                        // ввод количества чисел
+        while (true) {
+            n = scan.nextInt();                                                        // ввод количества чисел
+            if (n < 1) {
+                System.out.println("Вы ввели некоректное число. Введите число больше 0");
+                continue;
+            }
+            break;
+        }
 
         int field [] = new int [n];
         int lght [] = new int [n];
 
-        for (int i = 0; i >= 0; i++) {                                             // заполнение массива
-            if (i != n) {
-                System.out.println("Введите " + (i + 1) + "-е число из " + n);
-                field [i] = scan.nextInt();
-            } else {
-                break;
-            }
+//        int index =0;
+//        while (true) {
+//            System.out.println("Введите " + (index + 1) + "-е число из " + n);
+//            field [index++] = scan.nextInt();
+//            if (index >= n) {
+//                break;
+//            }
+//        }
+
+
+        for (int i = 0; i < n; i++) {                                             // заполнение массива
+            System.out.println("Введите " + (i + 1) + "-е число из " + n);
+            field [i] = scan.nextInt();
+//            if (i != n) {
+//                System.out.println("Введите " + (i + 1) + "-е число из " + n);
+//                field [i] = scan.nextInt();
+//            } else {
+//                break;
+//            }
         }
 
         System.out.println("Вы ввели такие числа:");
@@ -119,8 +155,10 @@ public class VariantA {
 
         for (int i = n - 1; i > 0; i--) {
             for (int j = 0; j < i; j++) {
-                if ((int)(Math.log10(field[j]))                                    // сравниваем два соседних значения
-                        > (int)(Math.log10(field[j + 1]))) {
+                int num1 = (int)(Math.log10(field[j]));
+
+                // сравниваем два соседних значения
+                if (num1 > (int)(Math.log10(field[j + 1]))) {
                     int tmp = field [j];
                     field [j] = field [j + 1];                                     // если да, то меняем местами
                     field [j + 1] = tmp;
