@@ -7,7 +7,7 @@ public class Task1 {
         Scanner scan = new Scanner(System.in);
         String st;
 
-        System.out.println("Введите ваше имя: ");
+        System.out.println("Введите ваше имя и нажмите Enter: ");
         st = scan.next();
         System.out.println("Приветствую вас, " + st);
     }
