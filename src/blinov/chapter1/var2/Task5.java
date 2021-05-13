@@ -4,7 +4,8 @@ package blinov.chapter1.var2;
 public class Task5 {
     public static void main(String[] args) {
         DataInput input = new DataInput();
-        int [] area = input.enterQuantityAndNumbers();
+        String [] areaString = input.enterQuantityAndString();
+        int [] area = input.doStringToInt(areaString);
 
         int temp;
         int k;

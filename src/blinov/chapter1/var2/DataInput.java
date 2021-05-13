@@ -5,28 +5,30 @@ import java.util.Scanner;
 class DataInput {
     Scanner scan = new Scanner(System.in);
 
-    int [] enterQuantityAndNumbers () {
+    String [] enterQuantityAndString () {
         System.out.println("Какое количество чисел вы хотите ввести?");
-        int quantity = scan.nextInt();
-        int [] areaNumbers = new int [quantity];
-        for (int i = 0; i < quantity; i++) {
+        String quantity = scan.next();
+        int quantityInt = Integer.parseInt(quantity);
+        String [] areaInput = new String [quantityInt];
+        for (int i = 0; i < quantityInt; i++) {
             System.out.println("Введите " + (i + 1) + " -е число");
-            areaNumbers [i] = scan.nextInt();
+            areaInput [i] = scan.next();
         }
 
         System.out.println("Вы ввели такие числа: ");
-        for (int a: areaNumbers) {
+        for (String a: areaInput) {
             System.out.print(a + " ");
         }
-        return areaNumbers;
+        return areaInput;
     }
 
-    int getFirstNumber (int a) {
-        int firstNumber = 0;
-        if (a >= 1000000000) {
-            firstNumber = a / 1000000000 % 10;
+    int [] doStringToInt (String [] str) {
+        int [] areaInputNumbers = new int [str.length];
+        for (int i = 0; i < str.length; i++) {
+            areaInputNumbers [i] = Integer.parseInt(str[i]);
         }
-        return firstNumber;
-
+        return areaInputNumbers;
     }
+
+
 }
