@@ -5,6 +5,11 @@ import java.util.Scanner;
 class DataInput {
     Scanner scan = new Scanner(System.in);
 
+    /*
+    * я бы назвал метод enterAmountOfNumbers
+    * если ввести 10.2, то все сломается. Тогда нужно указать, что вводить только
+    * целочисленные числа
+    */
     int [] enterQuantityAndNumbers () {
         System.out.println("Какое количество чисел вы хотите ввести?");
         int quantity = scan.nextInt();
@@ -15,7 +20,7 @@ class DataInput {
         }
 
         System.out.println("Вы ввели такие числа: ");
-        for (int a: areaNumbers) {
+        for (int a : areaNumbers) {
             System.out.print(a + " ");
         }
         return areaNumbers;

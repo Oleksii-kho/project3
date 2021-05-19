@@ -6,19 +6,25 @@ public class Task1 {
         DataInput input = new DataInput();
         int [] area = input.enterQuantityAndNumbers();
 
-        System.out.println();
+        /*
+        * Лучше вывести пустую строку другим способом. В следующей строке начать с \n
+        * для удаления лишних строк кода
+        * */
+//        System.out.println();
 
-        System.out.println("Четные числа: ");
-        for (int a: area) {
+        System.out.println("\nЧетные числа: ");
+        for (int a : area) {
             if (a % 2 == 0) {
                 System.out.print(a + " ");
             }
         }
 
-        System.out.println();
-
-        System.out.println("Нечетные числа: ");
-        for (int a: area) {
+//        System.out.println();
+        /*
+        * по стилю кода, я бы отделял пробелами текст вокруг : и справа и слева
+        * */
+        System.out.println("\nНечетные числа: ");
+        for (int a : area) {
             if (a % 2 != 0) {
                 System.out.print(a + " ");
             }
