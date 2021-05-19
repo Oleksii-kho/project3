@@ -6,7 +6,8 @@ public class Task7 {
         System.out.println("Для этой задачи рекомендуется вводить 2-3 числа");
 
         DataInput input = new DataInput();
-        int [] area = input.enterQuantityAndNumbers();
+        String [] areaString = input.enterQuantityAndString();
+        int [] area = input.doStringToInt(areaString);
 
         int gcd = 1;                     // greatest common divisor - НОД
         int lcm = 1;                     // least common multiple - НОК
